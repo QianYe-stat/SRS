@@ -107,7 +107,7 @@ SRSampling <- function(x, size, replace=FALSE, rep=1, show.SRS=FALSE,
     samp.mean <- c()
     samp.se <- c()
     for(i in 1:rep){
-      # if(verbose==T) cat("\nThe ",i,"-th run of simulation\n", sep="")
+      # if(verbose==TRUE) cat("\nThe ",i,"-th run of simulation\n", sep="")
       temp <- sample(x=x, size=size, replace=replace)
       temp.mean<- mean(temp, trim=trim, na.rm=na.rm, ...)
       temp.se <- stats::sd(temp, na.rm=na.rm, ...)
@@ -123,11 +123,11 @@ SRSampling <- function(x, size, replace=FALSE, rep=1, show.SRS=FALSE,
     sample.mean <- list(values=samp.mean, mean=mean.samp.mean, se=se.samp.mean)
     sample.se <- list(values=samp.se, mean=mean.samp.se, se=se.samp.se)
   }
-  if(show.SRS==T){
+  if(show.SRS==TRUE){
     if(verbose) cat("\nThe SRS for each run of samplings are shown in the result\n\n")
     result<- list(sample.mean=sample.mean, sample.se=sample.se, SRS=samp)
   }
-  if(show.SRS==F){
+  if(show.SRS==FALSE){
     if(verbose) cat("\nThe SRS for each run of samplings are NOT included in the result\n\n")
     result<- list(sample.mean=sample.mean, sample.se=sample.se)
   }
