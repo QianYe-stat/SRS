@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 The goal of SRS is to to take one or multiple simple random samples (SRS) of the specified size from an assumed population which are elements of a vector with length>1, and return the summary statistics including sample mean, sample standard deviation and etc.
 
-The functions in the package can additionally be used to illustrate the asymptotic properties of estimates based on SRS, which is also known as the central limit theorem.
+The functions in SRS can additionally be used to illustrate the asymptotic properties of estimates based on SRS, which is also known as the central limit theorem.
 
 ## Installation
 

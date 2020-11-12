@@ -12,9 +12,9 @@ The goal of SRS is to to take one or multiple simple random samples
 elements of a vector with length\>1, and return the summary statistics
 including sample mean, sample standard deviation and etc.
 
-The function can additionally be used to illustrate the asymptotic
-properties of estimates based on SRS, which is also known as the central
-limit theorem.
+The functions in SRS can additionally be used to illustrate the
+asymptotic properties of estimates based on SRS, which is also known as
+the central limit theorem.
 
 ## Installation
 
@@ -40,16 +40,16 @@ SRSampling(x=pop.1, size=10, show.SRS=T)
 #> 
 #> The SRS for each run of samplings are shown in the result
 #> $sample.mean
-#> [1] -1.346722
+#> [1] -2.277722
 #> 
 #> $sample.se
-#> [1] 10.89271
+#> [1] 11.27697
 #> 
 #> $SRS
-#>          [,1]      [,2]      [,3]      [,4]     [,5]      [,6]       [,7]
-#> [1,] 16.63996 -6.739872 -11.66441 -2.716868 9.321108 -15.80919 -0.3498162
-#>          [,8]    [,9]     [,10]
-#> [1,] -5.55034 12.8077 -9.405489
+#>          [,1]     [,2]      [,3]     [,4]     [,5]     [,6]      [,7]     [,8]
+#> [1,] 4.608637 -25.4964 -16.08403 4.805699 6.467874 4.429189 -3.997765 6.275218
+#>           [,9]    [,10]
+#> [1,] -9.617325 5.831679
 
 # take 20 SRS from x of size=10, show.SRS=FALSE
 SRSampling(x=pop.1, size=10, rep=20)
@@ -58,29 +58,29 @@ SRSampling(x=pop.1, size=10, rep=20)
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
 #> $sample.mean$values
-#>  [1] -1.07509575  2.80297001  0.51181942  2.52677251  3.32956330 -0.50495907
-#>  [7] -4.33395497 -1.53840674  2.21213018 -5.35249795 -0.18188073  2.22242190
-#> [13]  3.88172422 -1.73907884 -0.04385333  1.84835117 -5.62323469 -0.98114436
-#> [19]  3.44911268  1.62600542
+#>  [1]  2.8693288 -5.6778496 -0.2209874 -3.5763417  0.1746583  1.5371569
+#>  [7] -3.3641300  2.6447542 -4.4955537 -2.1030709 -1.4253396 -1.9256550
+#> [13]  2.3372455 -5.3681150  0.5255376 -1.4940819 -3.7248119 -1.3989187
+#> [19] -3.3979898  8.2052213
 #> 
 #> $sample.mean$mean
-#> [1] 0.1518382
+#> [1] -0.9939471
 #> 
 #> $sample.mean$se
-#> [1] 2.854709
+#> [1] 3.37265
 #> 
 #> 
 #> $sample.se
 #> $sample.se$values
-#>  [1] 11.002900  8.213820 11.799953  8.994506 10.479121  6.132662 11.122730
-#>  [8]  7.993642  5.861777  8.273720  7.072097  9.783763 11.663366  8.429760
-#> [15] 11.278754  8.784391  6.008607  7.873832  6.385284  9.256327
+#>  [1]  5.484779 11.334022  9.328010 11.748013  9.367737  5.735899 11.741103
+#>  [8] 11.382173 10.472959  6.942815  7.290888  8.488570  9.276400  7.489116
+#> [15]  9.825964 10.489480  7.518920 13.828792  6.792248  8.387864
 #> 
 #> $sample.se$mean
-#> [1] 8.820551
+#> [1] 9.146288
 #> 
 #> $sample.se$se
-#> [1] 1.949867
+#> [1] 2.231561
 ```
 
 Some expected errors and warnings
@@ -99,10 +99,10 @@ SRSampling(x=pop.2, size=5.8) # warning
 #> 
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
-#> [1] -6.706779
+#> [1] 4.247781
 #> 
 #> $sample.se
-#> [1] 8.069346
+#> [1] 10.723
 
 ## x=numeric(0)
 SRSampling(x=numeric(0), size=1) # error; not run
