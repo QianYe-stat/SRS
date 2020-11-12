@@ -1,3 +1,66 @@
+#' SRSampling: take one or multiple simple random samples
+#'
+#' @param x the assumed population from which the SRS are chosen. It must be a vector with length > 1. NA in x can also be chosen.
+#' @param size the sample size. the number of items to choose
+#' @param replace whether sampling should be with replacement
+#' @param rep the number of simulation runs. Default rep=1.
+#' @param show.SRS whether to show SRS for each run of simulations
+#' @param verbose whether to return verbose message
+#' @param na.rm whether to remove NA when calculate summary statistics for SRS.
+#' @param trim the fraction (0 to 0.5) of observations to be trimmed from each end of x before the mean is computed. Values of trim outside that range are taken as the nearest endpoint
+#' @param ... additional arguments to be passed to or from methods.
+#'
+#' @return a list a list containing the following components, conditional on the argument `rep`:
+
+#' When `rep=1` (the default):
+#' \itemize{
+#' \item `sample.mean`: a numeric number giving the mean of the SRS
+#' \item `sample.se`: a numeric number giving the SD of the SRS
+#' \item `SRS`: a matrix containing the values in the SRS with `nrow=1` and `ncol=size`. Available only if `show.SRS=TRUE`
+#' }
+
+#'  When `rep>1`:
+#'  \itemize{
+#'  \item `sample.mean`: a list containing the following components about sample means from multiple SRS:
+#'    \itemize{
+#'    \item `values`: a vector with a length of `rep` giving sample mean for each of the multiple SRS
+#'    \item `mean`: a numeric number giving the mean of `values`
+#'    \item `se`: a numeric number giving the mean of `values`
+#'    }
+#'  \item `sample.se`: a list containing the following components about sample sds from multiple SRS:
+#'    \itemize{
+#'    \item `values`: a vector with a length of `rep` giving sample sd for each of the multiple SRS
+#'    \item `mean`: a numeric number giving the mean of `values`
+#'    \item `se`: a numeric number giving the mean of `values`
+#'    }
+#'  \item `SRS`: a matrix containing the values in each of the multiple SRS with `nrow=rep` and `ncol=size`. Available only if `show.SRS=TRUE`.
+#'  }
+
+#' @export
+#'
+#' @examples
+#' pop.1 <- rnorm(1000,0,10)
+#' # take a SRS from x of size=10, show.SRS=TRUE
+#' SRSampling(x=pop.1, size=10, show.SRS=TRUE)
+#' # take 20 SRS from x of size=10, show.SRS=FALSE
+#' SRSampling(x=pop.1, size=10, rep=20)
+#'
+#' # size>length(pop.2)
+#' pop.2 <- rnorm(10,0,10)
+#' # SRSampling(x=pop.2, size=15, rep=20) # error
+#'
+#' # non-integer size
+#' SRSampling(x=pop.2, size=5.8) # warning
+#'
+#' # x=numeric(0)
+#' # SRSampling(x=numeric(0), size=1) # error
+#'
+#' # x with NA
+#' pop.3 <- c(1,2,3,4,NA)
+#' SRSampling(x=pop.3, size=5, na.rm=TRUE)
+#' SRSampling(x=pop.3, size=5)
+
+
 SRSampling <- function(x, size, replace=FALSE, rep=1, show.SRS=FALSE,
                        verbose=TRUE, na.rm=FALSE, trim=0,...){
 
@@ -31,7 +94,7 @@ SRSampling <- function(x, size, replace=FALSE, rep=1, show.SRS=FALSE,
     if(verbose) cat("A simple random sample of size",size,"is drawn from x\n")
     samp <- matrix(sample(x=x, size=size, replace=replace), nrow=1)
     sample.mean<- mean(samp, trim=trim, na.rm=na.rm, ...)
-    sample.se <- sd(samp, na.rm=na.rm, ...)
+    sample.se <- stats::sd(samp, na.rm=na.rm, ...)
   }
 
   ## if rep>1; multiple SRS is taken ##
@@ -47,15 +110,15 @@ SRSampling <- function(x, size, replace=FALSE, rep=1, show.SRS=FALSE,
       # if(verbose==T) cat("\nThe ",i,"-th run of simulation\n", sep="")
       temp <- sample(x=x, size=size, replace=replace)
       temp.mean<- mean(temp, trim=trim, na.rm=na.rm, ...)
-      temp.se <- sd(temp, na.rm=na.rm, ...)
+      temp.se <- stats::sd(temp, na.rm=na.rm, ...)
       samp[i,] <- temp
       samp.mean <- c(samp.mean, temp.mean)
       samp.se <- c(samp.se, temp.se)
     }
-    mean.samp.mean=mean(samp.mean, trim=trim, na.rm=na.rm, ...)
-    se.samp.mean=sd(samp.mean, na.rm=na.rm)
-    mean.samp.se=mean(samp.se, trim=trim, na.rm=na.rm, ...)
-    se.samp.se=sd(samp.se, na.rm=na.rm)
+    mean.samp.mean <- mean(samp.mean, trim=trim, na.rm=na.rm, ...)
+    se.samp.mean <- stats::sd(samp.mean, na.rm=na.rm)
+    mean.samp.se <- mean(samp.se, trim=trim, na.rm=na.rm, ...)
+    se.samp.se <- stats::sd(samp.se, na.rm=na.rm)
 
     sample.mean <- list(values=samp.mean, mean=mean.samp.mean, se=se.samp.mean)
     sample.se <- list(values=samp.se, mean=mean.samp.se, se=se.samp.se)

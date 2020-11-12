@@ -1,16 +1,19 @@
 Package: SRS
-Title: What the Package Does (One Line, Title Case)
+Title: take one or multiple simple random samples (SRS)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Qian",
+           family = "Ye",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "qian.ye@stat.ubc.ca",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Description: take one or multiple simple random samples (SRS) of the specified size from a assumed population which are elements of a vector with length>1, and return the summary statistics including sample mean, sample standard deviation and etc.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    stats
+Suggests: 
+    testthat
