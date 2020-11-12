@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# SRS
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of SRS is to to take one or multiple simple random samples (SRS) of the specified size from an assumed population which are elements of a vector with length>1, and return the summary statistics including sample mean, sample standard deviation and etc.
+
+The function can additionally be used to illustrate the asymptotic properties of estimates based on SRS, which is also known as the central limit theorem.
+
+## Installation
+
+You can install SRS from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("QianYe-stat/SRS")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(SRS)
+## basic example code
+###### informal tests #######
+pop.1 <- rnorm(1000,0,10)
+# take a SRS from x of size=10, show.SRS=TRUE
+SRSampling(x=pop.1, size=10, show.SRS=T)
+
+# take 20 SRS from x of size=10, show.SRS=FALSE
+SRSampling(x=pop.1, size=10, rep=20)
+```
+
+
+Some expected errors and warnings
+```{r, error=TRUE}
+## size>length(pop.2)
+pop.2 <- rnorm(10,0,10)#
+SRSampling(x=pop.2, size=15, rep=20) # error; not run
+
+## non-integer size
+SRSampling(x=pop.2, size=5.8) # warning
+
+## x=numeric(0)
+SRSampling(x=numeric(0), size=1) # error; not run
+```
+
+input with NA
+```{r}
+## x with NA
+pop.3 <- c(1,2,3,4,NA)
+SRSampling(x=pop.3, size=5, na.rm=T)
+SRSampling(x=pop.3, size=5)
+
+```
+
+
