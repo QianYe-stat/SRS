@@ -17,3 +17,5 @@ Imports:
     stats
 Suggests: 
     testthat
+URL: https://github.com/QianYe-stat/SRS
+BugReports: https://github.com/QianYe-stat/SRS/issues
