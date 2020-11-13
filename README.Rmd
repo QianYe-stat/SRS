@@ -30,6 +30,10 @@ You can install SRS from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("QianYe-stat/SRS")
 ```
+## Code of Conduct
+  
+  Please note that the SRS project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+  
 ## Development of SRS
 * Initialize the package folder using `create_package("~/Mye.package/SRS")`
 * Initialize Git repo using `use_git()`. 

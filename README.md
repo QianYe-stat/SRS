@@ -25,6 +25,12 @@ You can install SRS from [GitHub](https://github.com/) with:
 devtools::install_github("QianYe-stat/SRS")
 ```
 
+## Code of Conduct
+
+Please note that the SRS project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ## Development of SRS
 
   - Initialize the package folder using
@@ -80,16 +86,16 @@ SRSampling(x=pop.1, size=10, show.SRS=T)
 #> 
 #> The SRS for each run of samplings are shown in the result
 #> $sample.mean
-#> [1] 3.816363
+#> [1] 0.2842887
 #> 
 #> $sample.se
-#> [1] 8.608719
+#> [1] 8.908021
 #> 
 #> $SRS
-#>           [,1]     [,2]      [,3]     [,4]   [,5]      [,6]    [,7]     [,8]
-#> [1,] -10.15525 10.02867 -4.226343 9.550346 15.345 -6.105378 4.35639 5.930423
-#>          [,9]    [,10]
-#> [1,] 0.291216 13.14856
+#>          [,1]     [,2]      [,3]     [,4]     [,5]      [,6]     [,7]      [,8]
+#> [1,] 4.388528 8.664453 -9.839461 3.985477 -5.02338 -6.419471 10.72412 -10.22617
+#>          [,9]     [,10]
+#> [1,] 13.29993 -6.711139
 
 # take 20 SRS from x of size=10, show.SRS=FALSE
 SRSampling(x=pop.1, size=10, rep=20)
@@ -98,29 +104,29 @@ SRSampling(x=pop.1, size=10, rep=20)
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
 #> $sample.mean$values
-#>  [1]  0.84058269  0.73555048 -2.60166317 -3.08499100 -3.14369559  1.96327620
-#>  [7] -5.01245690 -4.47919740 -0.33447534 -5.15962397  4.50634615 -1.52005600
-#> [13] -4.03887648  1.36493229 -6.98758479 -5.55746810  1.78054424 -3.75058632
-#> [19] -0.43166913 -0.09152548
+#>  [1]  2.1756343  0.4616529  0.1584727  0.7386999 -9.8762426 -3.1986492
+#>  [7] -8.4821592  1.2794976 -3.5933520 -0.5436608  0.5026906  1.3272103
+#> [13] -0.3594529 -0.6782900 -0.8164073 -2.7491015 -3.6062006  0.3481691
+#> [19] -1.4846674  2.9557143
 #> 
 #> $sample.mean$mean
-#> [1] -1.750132
+#> [1] -1.272022
 #> 
 #> $sample.mean$se
-#> [1] 3.076824
+#> [1] 3.265561
 #> 
 #> 
 #> $sample.se
 #> $sample.se$values
-#>  [1]  7.431364  8.024388 10.402842 13.746337 10.373835  5.386881 12.387941
-#>  [8]  8.491443 12.346970 10.755714  5.564663  7.592305 11.003624  8.869635
-#> [15]  9.598863  5.872058 13.023438  6.601364  7.399348  6.467509
+#>  [1]  7.644560  6.662709  8.168850  8.295005  9.138854  8.547240  8.603821
+#>  [8] 11.199780  8.788748  9.727965  7.763617  7.244859 11.594841 12.673456
+#> [15]  8.608943 12.013989  9.571404 12.950514 10.567133  6.586619
 #> 
 #> $sample.se$mean
-#> [1] 9.067026
+#> [1] 9.317645
 #> 
 #> $sample.se$se
-#> [1] 2.592055
+#> [1] 1.926982
 ```
 
 Some expected errors and warnings
@@ -139,10 +145,10 @@ SRSampling(x=pop.2, size=5.8) # warning
 #> 
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
-#> [1] -5.054698
+#> [1] -2.467125
 #> 
 #> $sample.se
-#> [1] 11.01127
+#> [1] 7.974626
 
 ## x=numeric(0)
 SRSampling(x=numeric(0), size=1) # error; not run
