@@ -2,20 +2,20 @@
 % Please edit documentation in R/is_wholenumber.R
 \name{is_wholenumber}
 \alias{is_wholenumber}
-\title{is_wholenumber: check if a number is integer}
+\title{is_wholenumber: check if a number is an integer}
 \usage{
 is_wholenumber(x, tol = .Machine$double.eps^0.5)
 }
 \arguments{
 \item{x}{a numeric vector}
 
-\item{tol}{}
+\item{tol}{the tolerance}
 }
 \value{
 logical indicating whether x is integer
 }
 \description{
-is_wholenumber: check if a number is integer
+is_wholenumber: check if a number is an integer
 }
 \examples{
 is_wholenumber(1.5)

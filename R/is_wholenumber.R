@@ -1,7 +1,7 @@
 #' is_wholenumber: check if a number is an integer
 #'
 #' @param x a numeric vector
-#' @param tol
+#' @param tol the tolerance
 #'
 #' @return logical indicating whether x is integer
 #'
