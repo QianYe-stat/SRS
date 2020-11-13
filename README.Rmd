@@ -48,6 +48,9 @@ devtools::install_github("QianYe-stat/SRS")
 * Run `use_github()` to connect the local `SRS` package and Git repository to a companion repository on GitHub.
 * Create `README` file by using `use_readme_rmd()`. 
 * Manually modify the `README.Rmd` file and run `build_readme()` to render it.
+* Create a vignette file by using `use_vignette("Use_SRS_to_Show_CLT")`.
+* Manually modify it and run `build_vignettes()`
+* Final `check()` and `install()`.
 
 ## Example
 

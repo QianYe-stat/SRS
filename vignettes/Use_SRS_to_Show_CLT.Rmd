@@ -13,7 +13,70 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+## This is an example that how to use `SRSampling` function in SRS package to illustrate the Central Limit Theorem. 
 
+- Suppose $X$ following a uniform distribution within interval $(0,12)$; that is 
+$$X\sim \mathcal{Unif}(0,12).$$
+So, $\mathrm{E}(X)=6$ and $\mathrm{Var}(X)=12$.
+
+If we generate a large amount of random numbers following $\mathcal{Unif}(0,12)$ and assume they are the target population of interest.
+Let's see the distribution of the target population, as well as the summary statistics. 
+```{r}
+# generate target population: pop
+set.seed(123)
+pop <- runif(10000, 0, 12)
+
+# the histogram should be close to the uniform density
+hist(pop)
+
+# population mean; should be close to E(X)=6
+mean(pop)
+
+# population variance; should be close to Var(X)=12
+var(pop)
+```
+
+- Use the `SRS` package to take multiple SRS from the population and study the sampling distribution.
+
+  - Sample size=10; 1000 replicates
 ```{r setup}
 library(SRS)
+set.seed(123)
+sample.10 <- SRSampling(pop, size=10, rep=1000)
+
+# extract the sample means for every SRS
+sample.10.means <- sample.10$sample.mean$values
+
+# the histogram
+hist(sample.10.means)
+
+# mean of sample mean
+sample.10$sample.mean$mean
+
+# var of sample mean
+sample.10$sample.mean$se^2
 ```
+  - Sample size=100; 1000 replicates
+```{r}
+
+set.seed(123)
+sample.100 <- SRSampling(pop, size=100, rep=1000)
+
+# extract the sample means for every SRS
+sample.100.means <- sample.10$sample.mean$values
+
+# the histogram
+hist(sample.100.means)
+
+# mean of sample mean
+sample.100$sample.mean$mean
+
+# var of sample mean
+sample.100$sample.mean$se^2
+```
+- By observing the histogram and summary statistics of sample means from SRS, the Central Limit Theorem is confirmed; that is
+\[
+\bar{X} \sim \mathcal{N}(\mu, \sigma^2)\\
+\mu=\mathrm{E}(X), \quad \sigma^2=\frac{\mathrm{Var}(x)}{n},
+\]
+where n is the sample size.
