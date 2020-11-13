@@ -1,0 +1,19 @@
+---
+title: "Use_SRS_to_Show_CLT"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Use_SRS_to_Show_CLT}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(SRS)
+```

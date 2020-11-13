@@ -16,6 +16,9 @@ RoxygenNote: 7.1.1
 Imports: 
     stats
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 URL: https://github.com/QianYe-stat/SRS
 BugReports: https://github.com/QianYe-stat/SRS/issues
+VignetteBuilder: knitr

@@ -30,6 +30,25 @@ You can install SRS from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("QianYe-stat/SRS")
 ```
+## Development of SRS
+* Initialize the package folder using `create_package("~/Mye.package/SRS")`
+* Initialize Git repo using `use_git()`. 
+* Use `use_r("is_wholenumber")` and `use_r("SRSampling")` to create 2 separate blank R script files. Copy and paste the codes for the 2 functions from assignment-1b to the 2 R script files respectively.
+* Commit changes and run `check()`
+* Modify `DESCRIPTION`. Mostly manually but with `use_mit_license("Qian Ye")` to  fill-in the license information.
+* Run `use_package("stats")` to add `stats` package to Import field in `DESCRIPTION` as `sd()` function from `stats` is used in my package.
+* Update my R codes with `sd` replaced by `stats::sd`.
+* Run `check()`, `install()` and then `library(SRS)`. It's working!
+* Create `tests` folder using `use_testthat()`
+* Create a test file using `use_test("SRSampling")` and write `test_that` functions to test `SRSampling` function.
+* Run `test()`. Passed!
+* Update R codes with a specially formatted comment begin with `#'`. Run `document()` to generate corresponding `*.Rd` files. Try `?SRSampling`. It's working!
+  + note that, I choose not to `@export` for the `is_wholenumber` function. Because it's sourced from `examples` under `integer{base}` and out of the objective of `SRS` package which is to take SRS samples.
+* Manually configured a GitHub Personal Access Token (PAT) following the [instructions](https://happygitwithr.com/github-pat.html#github-pat).
+* Run `use_github()` to connect the local `SRS` package and Git repository to a companion repository on GitHub.
+* Create `README` file by using `use_readme_rmd()`. 
+* Manually modify the `README.Rmd` file and run `build_readme()` to render it.
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
