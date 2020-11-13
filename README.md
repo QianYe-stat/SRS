@@ -42,8 +42,9 @@ devtools::install_github("QianYe-stat/SRS")
   - Run `check()`, `install()` and then `library(SRS)`. It’s working\!
   - Create `tests` folder using `use_testthat()`
   - Create a test file using `use_test("SRSampling")` and write
-    `test_that` functions to test `SRSampling` function. Do the similar
-    to test `is_wholenumber`.
+    `test_that` functions to test `SRSampling` function.
+      - As I choose not to `@export` `is_wholenumber` function. So I
+        didn’t write tests for `is_wholenumber`.
   - Run `test()`. Passed\!
   - Update R codes with a specially formatted comment begin with `#'`.
     Run `document()` to generate corresponding `*.Rd` files. Try
@@ -80,16 +81,16 @@ SRSampling(x=pop.1, size=10, show.SRS=T)
 #> 
 #> The SRS for each run of samplings are shown in the result
 #> $sample.mean
-#> [1] 2.045516
+#> [1] 2.614929
 #> 
 #> $sample.se
-#> [1] 7.821692
+#> [1] 8.456156
 #> 
 #> $SRS
-#>           [,1]     [,2]      [,3]     [,4]     [,5]      [,6]       [,7]
-#> [1,] -1.600769 1.068278 -1.343295 17.59855 7.978786 -6.059401 0.01006782
-#>          [,8]      [,9]     [,10]
-#> [1,] 10.44814 -8.208278 0.5630807
+#>          [,1]    [,2]     [,3]     [,4]     [,5]      [,6]      [,7]       [,8]
+#> [1,] 7.083374 10.0046 13.05903 5.975289 9.309337 -12.70941 -5.744253 -0.9567718
+#>          [,9]     [,10]
+#> [1,] 6.118643 -5.990549
 
 # take 20 SRS from x of size=10, show.SRS=FALSE
 SRSampling(x=pop.1, size=10, rep=20)
@@ -98,29 +99,29 @@ SRSampling(x=pop.1, size=10, rep=20)
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
 #> $sample.mean$values
-#>  [1]  0.1931193 -1.7056575  2.5314393  3.0783665  1.1324261 -4.5912751
-#>  [7] -0.3603964 -1.6771378  2.8925608 -3.9552904 -5.0813103 -2.9094431
-#> [13] -5.2622625  4.7095393 -1.1584647  1.0520307 -0.4818459  2.7466811
-#> [19]  4.8026641 -5.5773790
+#>  [1] -0.6300666  7.8807660 -4.9809262  0.4883154 -1.0430935 -0.7576430
+#>  [7] -3.6520578  2.3210404  4.5040856  0.2584504 -1.2786821  1.1946975
+#> [13]  0.6514749 -6.3002398 -5.4111171 -4.7242833  3.4336017 -0.2264993
+#> [19] -5.3640397 -4.2494531
 #> 
 #> $sample.mean$mean
-#> [1] -0.4810818
+#> [1] -0.8942835
 #> 
 #> $sample.mean$se
-#> [1] 3.340912
+#> [1] 3.739882
 #> 
 #> 
 #> $sample.se
 #> $sample.se$values
-#>  [1] 11.612822  5.982772 11.867678  9.714808 12.974226  6.810183 10.406516
-#>  [8] 12.681705 10.789380 12.148726  9.671148 13.763323 11.208053 11.140340
-#> [15]  9.760305 10.355759 10.461423  9.532279  8.207233 10.921687
+#>  [1] 10.131897  8.882303 10.588940 13.557500  9.444486  9.873183  4.969128
+#>  [8] 10.773341  5.877621  9.156449  8.291748 13.386972  6.534550  8.053787
+#> [15]  9.086836  7.138654  8.462285  9.284469  7.503173 11.174989
 #> 
 #> $sample.se$mean
-#> [1] 10.50052
+#> [1] 9.108616
 #> 
 #> $sample.se$se
-#> [1] 1.927995
+#> [1] 2.200661
 ```
 
 Some expected errors and warnings
@@ -139,10 +140,10 @@ SRSampling(x=pop.2, size=5.8) # warning
 #> 
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
-#> [1] -2.572248
+#> [1] -4.058842
 #> 
 #> $sample.se
-#> [1] 11.43797
+#> [1] 11.54616
 
 ## x=numeric(0)
 SRSampling(x=numeric(0), size=1) # error; not run

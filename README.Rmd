@@ -40,7 +40,8 @@ devtools::install_github("QianYe-stat/SRS")
 * Update my R codes with `sd` replaced by `stats::sd`.
 * Run `check()`, `install()` and then `library(SRS)`. It's working!
 * Create `tests` folder using `use_testthat()`
-* Create a test file using `use_test("SRSampling")` and write `test_that` functions to test `SRSampling` function. Do the similar to test `is_wholenumber`.
+* Create a test file using `use_test("SRSampling")` and write `test_that` functions to test `SRSampling` function. 
+  + As I choose not to `@export` `is_wholenumber` function. So I didn't write tests for `is_wholenumber`.
 * Run `test()`. Passed!
 * Update R codes with a specially formatted comment begin with `#'`. Run `document()` to generate corresponding `*.Rd` files. Try `?SRSampling`. It's working!
   + note that, I choose not to `@export` for the `is_wholenumber` function. Because it's sourced from `examples` under `integer{base}` and out of the objective of `SRS` package which is to take SRS samples.
