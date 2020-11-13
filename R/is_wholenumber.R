@@ -9,7 +9,7 @@
 #' @examples
 #' #is_wholenumber(1.5)
 #' #is_wholenumber(1:5)
-#' #is_wholenumber(c(1,2.5,NA))
+#' is_wholenumber(c(1,2.5,NA))
 is_wholenumber <-
   function(x, tol = .Machine$double.eps^0.5) {
     abs(x - round(x)) < tol
