@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 ## This is an example that how to use `SRSampling` function in SRS package to illustrate the Central Limit Theorem. 
 
-- Suppose $X$ following a uniform distribution within interval $(0,12)$; that is 
+1. Suppose $X$ following a uniform distribution within interval $(0,12)$; that is 
 $$X\sim \mathcal{Unif}(0,12).$$
 So, $\mathrm{E}(X)=6$ and $\mathrm{Var}(X)=12$.
 
@@ -36,9 +36,9 @@ mean(pop)
 var(pop)
 ```
 
-- Use the `SRS` package to take multiple SRS from the population and study the sampling distribution.
+2. Use the `SRS` package to take multiple SRS from the population and study the sampling distribution.
 
-  - Sample size=10; 1000 replicates
+   + Sample size=10; 1000 replicates
 ```{r setup}
 library(SRS)
 set.seed(123)
@@ -56,7 +56,7 @@ sample.10$sample.mean$mean
 # var of sample mean
 sample.10$sample.mean$se^2
 ```
-  - Sample size=100; 1000 replicates
+   + Sample size=100; 1000 replicates
 ```{r}
 
 set.seed(123)
@@ -74,7 +74,7 @@ sample.100$sample.mean$mean
 # var of sample mean
 sample.100$sample.mean$se^2
 ```
-- By observing the histogram and summary statistics of sample means from SRS, the Central Limit Theorem is confirmed; that is
+3. By observing the histogram and summary statistics of sample means from SRS, the Central Limit Theorem is confirmed; that is
 \[
 \bar{X} \sim \mathcal{N}(\mu, \sigma^2)\\
 \mu=\mathrm{E}(X), \quad \sigma^2=\frac{\mathrm{Var}(x)}{n},

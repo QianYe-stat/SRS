@@ -381,9 +381,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="this-is-an-example-that-how-to-use-srsampling-function-in-srs-package-to-illustrate-the-central-limit-theorem." class="section level2">
 <h2>This is an example that how to use <code>SRSampling</code> function in SRS package to illustrate the Central Limit Theorem.</h2>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Suppose <span class="math inline">\(X\)</span> following a uniform distribution within interval <span class="math inline">\((0,12)\)</span>; that is <span class="math display">\[X\sim \mathcal{Unif}(0,12).\]</span> So, <span class="math inline">\(\mathrm{E}(X)=6\)</span> and <span class="math inline">\(\mathrm{Var}(X)=12\)</span>.</li>
-</ul>
+</ol>
 <p>If we generate a large amount of random numbers following <span class="math inline">\(\mathcal{Unif}(0,12)\)</span> and assume they are the target population of interest. Let’s see the distribution of the target population, as well as the summary statistics.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># generate target population: pop</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
@@ -400,12 +400,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb2-6"><a href="#cb2-6"></a><span class="co"># population variance; should be close to Var(X)=12</span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="kw">var</span>(pop)</span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; [1] 11.83583</span></span></code></pre></div>
-<ul>
+<ol start="2" style="list-style-type: decimal">
 <li><p>Use the <code>SRS</code> package to take multiple SRS from the population and study the sampling distribution.</p>
 <ul>
 <li>Sample size=10; 1000 replicates</li>
 </ul></li>
-</ul>
+</ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(SRS)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>sample<span class="fl">.10</span> &lt;-<span class="st"> </span><span class="kw">SRSampling</span>(pop, <span class="dt">size=</span><span class="dv">10</span>, <span class="dt">rep=</span><span class="dv">1000</span>)</span>
@@ -451,12 +451,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb6-6"><a href="#cb6-6"></a><span class="co"># var of sample mean</span></span>
 <span id="cb6-7"><a href="#cb6-7"></a>sample<span class="fl">.100</span><span class="op">$</span>sample.mean<span class="op">$</span>se<span class="op">^</span><span class="dv">2</span></span>
 <span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; [1] 0.1103998</span></span></code></pre></div>
-<ul>
+<ol start="3" style="list-style-type: decimal">
 <li>By observing the histogram and summary statistics of sample means from SRS, the Central Limit Theorem is confirmed; that is <span class="math display">\[
 \bar{X} \sim \mathcal{N}(\mu, \sigma^2)\\
 \mu=\mathrm{E}(X), \quad \sigma^2=\frac{\mathrm{Var}(x)}{n},
 \]</span> where n is the sample size.</li>
-</ul>
+</ol>
 </div>
 
 
