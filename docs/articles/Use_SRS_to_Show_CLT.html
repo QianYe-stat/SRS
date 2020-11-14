@@ -93,9 +93,9 @@
 <div id="this-is-an-example-that-how-to-use-srsampling-function-in-srs-package-to-illustrate-the-central-limit-theorem-" class="section level2">
 <h2 class="hasAnchor">
 <a href="#this-is-an-example-that-how-to-use-srsampling-function-in-srs-package-to-illustrate-the-central-limit-theorem-" class="anchor"></a>This is an example that how to use <code>SRSampling</code> function in SRS package to illustrate the Central Limit Theorem.</h2>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Suppose <span class="math inline">\(X\)</span> following a uniform distribution within interval <span class="math inline">\((0,12)\)</span>; that is <span class="math display">\[X\sim \mathcal{Unif}(0,12).\]</span> So, <span class="math inline">\(\mathrm{E}(X)=6\)</span> and <span class="math inline">\(\mathrm{Var}(X)=12\)</span>.</li>
-</ul>
+</ol>
 <p>If we generate a large amount of random numbers following <span class="math inline">\(\mathcal{Unif}(0,12)\)</span> and assume they are the target population of interest. Let’s see the distribution of the target population, as well as the summary statistics.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># generate target population: pop</span>
@@ -114,14 +114,14 @@
 <span class="co"># population variance; should be close to Var(X)=12</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>
 <span class="co">#&gt; [1] 11.83583</span></code></pre></div>
-<ul>
+<ol start="2" style="list-style-type: decimal">
 <li>
 <p>Use the <code>SRS</code> package to take multiple SRS from the population and study the sampling distribution.</p>
 <ul>
 <li>Sample size=10; 1000 replicates</li>
 </ul>
 </li>
-</ul>
+</ol>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/QianYe-stat/SRS">SRS</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
@@ -171,12 +171,12 @@
 <span class="co"># var of sample mean</span>
 <span class="va">sample.100</span><span class="op">$</span><span class="va">sample.mean</span><span class="op">$</span><span class="va">se</span><span class="op">^</span><span class="fl">2</span>
 <span class="co">#&gt; [1] 0.1103998</span></code></pre></div>
-<ul>
+<ol start="3" style="list-style-type: decimal">
 <li>By observing the histogram and summary statistics of sample means from SRS, the Central Limit Theorem is confirmed; that is <span class="math display">\[
 \bar{X} \sim \mathcal{N}(\mu, \sigma^2)\\
 \mu=\mathrm{E}(X), \quad \sigma^2=\frac{\mathrm{Var}(x)}{n},
 \]</span> where n is the sample size.</li>
-</ul>
+</ol>
 </div>
   </div>
 
