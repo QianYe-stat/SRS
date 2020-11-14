@@ -1,6 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+[![GitHub
+license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
+[![GitHub
+issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
+
 # SRS
 
 <!-- badges: start -->
@@ -69,6 +74,16 @@ By contributing to this project, you agree to abide by its terms.
   - Create a vignette file by using
     `use_vignette("Use_SRS_to_Show_CLT")`.
   - Manually modify it and run `build_vignettes()`
+  - Add a code of conduct by using `use_code_of_conduct()`, and describe
+    the code of conduct in README.
+  - Make a package website:
+      - first install `pkgdown` package, and then run `use_pkgdown()`
+        and `pkgdown::build_site()`;
+      - create Github Pages based on `/docs`;
+      - Please see the package website
+        [here](https://qianye-stat.github.io/SRS/)
+  - Manually create and modify the `NEWS.md` file in the root of the
+    repo.
   - Final `check()` and `install()`.
 
 ## Example
@@ -86,16 +101,16 @@ SRSampling(x=pop.1, size=10, show.SRS=T)
 #> 
 #> The SRS for each run of samplings are shown in the result
 #> $sample.mean
-#> [1] 0.2842887
+#> [1] 7.181381
 #> 
 #> $sample.se
-#> [1] 8.908021
+#> [1] 12.78927
 #> 
 #> $SRS
-#>          [,1]     [,2]      [,3]     [,4]     [,5]      [,6]     [,7]      [,8]
-#> [1,] 4.388528 8.664453 -9.839461 3.985477 -5.02338 -6.419471 10.72412 -10.22617
-#>          [,9]     [,10]
-#> [1,] 13.29993 -6.711139
+#>          [,1]     [,2]      [,3]     [,4]     [,5]    [,6]     [,7]     [,8]
+#> [1,] 33.21683 5.010598 0.6606564 2.910196 23.49031 9.59847 1.897836 9.489854
+#>           [,9]     [,10]
+#> [1,] -5.193655 -9.267285
 
 # take 20 SRS from x of size=10, show.SRS=FALSE
 SRSampling(x=pop.1, size=10, rep=20)
@@ -104,29 +119,29 @@ SRSampling(x=pop.1, size=10, rep=20)
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
 #> $sample.mean$values
-#>  [1]  2.1756343  0.4616529  0.1584727  0.7386999 -9.8762426 -3.1986492
-#>  [7] -8.4821592  1.2794976 -3.5933520 -0.5436608  0.5026906  1.3272103
-#> [13] -0.3594529 -0.6782900 -0.8164073 -2.7491015 -3.6062006  0.3481691
-#> [19] -1.4846674  2.9557143
+#>  [1] -2.5607936  7.0063903 -1.0083909  1.1260576 -1.9458916  3.0125118
+#>  [7]  4.5431107 -0.9394328 -1.6229451  1.8799470  3.8946911  5.2326307
+#> [13]  4.8203157  6.2402784  1.8628812  3.6858192  3.4888815 -3.0598952
+#> [19] -2.6881416 -7.5432422
 #> 
 #> $sample.mean$mean
-#> [1] -1.272022
+#> [1] 1.271239
 #> 
 #> $sample.mean$se
-#> [1] 3.265561
+#> [1] 3.794777
 #> 
 #> 
 #> $sample.se
 #> $sample.se$values
-#>  [1]  7.644560  6.662709  8.168850  8.295005  9.138854  8.547240  8.603821
-#>  [8] 11.199780  8.788748  9.727965  7.763617  7.244859 11.594841 12.673456
-#> [15]  8.608943 12.013989  9.571404 12.950514 10.567133  6.586619
+#>  [1] 12.069868 15.161602  7.855730  7.148997  8.588534 11.136489  9.634012
+#>  [8]  7.253708  8.368902 13.979150 13.207919  7.212935  8.434551  8.660554
+#> [15]  9.775438 10.586090 10.785652  7.792270 13.819023  9.214920
 #> 
 #> $sample.se$mean
-#> [1] 9.317645
+#> [1] 10.03432
 #> 
 #> $sample.se$se
-#> [1] 1.926982
+#> [1] 2.475914
 ```
 
 Some expected errors and warnings
@@ -145,10 +160,10 @@ SRSampling(x=pop.2, size=5.8) # warning
 #> 
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
-#> [1] -2.467125
+#> [1] -4.120377
 #> 
 #> $sample.se
-#> [1] 7.974626
+#> [1] 8.831648
 
 ## x=numeric(0)
 SRSampling(x=numeric(0), size=1) # error; not run

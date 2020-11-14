@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+[![GitHub license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
 
 # SRS
 
@@ -54,6 +56,12 @@ devtools::install_github("QianYe-stat/SRS")
 * Manually modify the `README.Rmd` file and run `build_readme()` to render it.
 * Create a vignette file by using `use_vignette("Use_SRS_to_Show_CLT")`.
 * Manually modify it and run `build_vignettes()`
+* Add a code of conduct by using `use_code_of_conduct()`, and describe the code of conduct in README.
+* Make a package website: 
+  + first install `pkgdown` package, and then run `use_pkgdown()` and `pkgdown::build_site()`;
+  + create Github Pages based on `/docs`;
+  + Please see the package website [here](https://qianye-stat.github.io/SRS/)
+* Manually create and modify the `NEWS.md` file in the root of the repo. 
 * Final `check()` and `install()`.
 
 ## Example
