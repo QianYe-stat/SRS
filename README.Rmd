@@ -62,6 +62,7 @@ devtools::install_github("QianYe-stat/SRS")
   + create Github Pages based on `/docs`;
   + Please see the package website [here](https://qianye-stat.github.io/SRS/)
 * Manually create and modify the `NEWS.md` file in the root of the repo. 
+* Manually add badges through https://shields.io/
 * Final `check()` and `install()`.
 
 ## Example
