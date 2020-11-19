@@ -18,8 +18,10 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![GitHub license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
+[![](https://img.shields.io/github/last-commit/QianYe-stat/SRS.svg)](https://github.com/QianYe-stat/SRS/commits/master)
 [![GitHub issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
+
 <!-- badges: end -->
 
 The goal of SRS is to to take one or multiple simple random samples (SRS) of the specified size from an assumed population which are elements of a vector with length>1, and return the summary statistics including sample mean, sample standard deviation and etc.
@@ -64,7 +66,7 @@ devtools::install_github("QianYe-stat/SRS")
   + create Github Pages based on `/docs`;
   + Please see the package website [here](https://qianye-stat.github.io/SRS/)
 * Create the `NEWS.md` file using `use_news_md()` and modify it.
-* Manually add badges through https://shields.io/. Also add lifecycle badge by using `use_lifecycle_badge("Experimental")`
+* Use `badger` to add badges.
 * Final `check()` and `install()`.
 
 ## Example
