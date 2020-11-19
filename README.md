@@ -1,15 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![GitHub
-license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
-[![GitHub
-issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
-
 # SRS
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![GitHub
+license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
+[![GitHub
+issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
 <!-- badges: end -->
 
 The goal of SRS is to to take one or multiple simple random samples
@@ -82,9 +83,9 @@ By contributing to this project, you agree to abide by its terms.
       - create Github Pages based on `/docs`;
       - Please see the package website
         [here](https://qianye-stat.github.io/SRS/)
-  - Manually create and modify the `NEWS.md` file in the root of the
-    repo.
-  - Manually add badges through <https://shields.io/>
+  - Create the `NEWS.md` file using `use_news_md()` and modify it.
+  - Manually add badges through <https://shields.io/>. Also add
+    lifecycle badge by using `use_lifecycle_badge("Experimental")`
   - Final `check()` and `install()`.
 
 ## Example
@@ -96,22 +97,23 @@ library(SRS)
 ## basic example code
 ###### informal tests #######
 pop.1 <- rnorm(1000,0,10)
+
 # take a SRS from x of size=10, show.SRS=TRUE
 SRSampling(x=pop.1, size=10, show.SRS=T)
 #> A simple random sample of size 10 is drawn from x
 #> 
 #> The SRS for each run of samplings are shown in the result
 #> $sample.mean
-#> [1] -2.378041
+#> [1] -5.378733
 #> 
 #> $sample.se
-#> [1] 9.2469
+#> [1] 10.40626
 #> 
 #> $SRS
-#>          [,1]     [,2]      [,3]       [,4]      [,5]      [,6]      [,7]
-#> [1,] 2.413954 5.824337 -9.589218 -0.7881578 -3.928258 -11.16055 -16.20911
-#>            [,8]     [,9]    [,10]
-#> [1,] -0.4011119 15.99035 -5.93266
+#>          [,1]      [,2]      [,3]      [,4]      [,5]       [,6]     [,7]
+#> [1,] 4.269689 -2.913542 -17.46868 -2.077495 -11.02044 -0.1533215 -25.7315
+#>          [,8]      [,9]    [,10]
+#> [1,] 2.176522 -8.771906 7.903331
 
 # take 20 SRS from x of size=10, show.SRS=FALSE
 SRSampling(x=pop.1, size=10, rep=20)
@@ -120,34 +122,35 @@ SRSampling(x=pop.1, size=10, rep=20)
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
 #> $sample.mean$values
-#>  [1] -4.0722813  5.0257800 -5.0095331  3.1961280  2.8167392 -0.9776344
-#>  [7] -6.4399032  0.9225921 -4.0808344 -3.1220259  3.1067913 -0.6240202
-#> [13]  0.3290298  3.5826979  2.4748354  2.7984342  6.3361672  0.5774479
-#> [19] -2.5103493  3.8470046
+#>  [1] -0.47891870  2.00327493  3.15193017  4.40111458  0.37711222  5.44956470
+#>  [7] -3.24557206  4.26533178  2.19576818  1.89413998 -2.58217577 -3.37963614
+#> [13]  6.39152601 -2.76176541 -0.01101246  0.17920900  2.00033285 -6.84372725
+#> [19]  4.14814072 -3.23283925
 #> 
 #> $sample.mean$mean
-#> [1] 0.4088533
+#> [1] 0.6960899
 #> 
 #> $sample.mean$se
-#> [1] 3.626992
+#> [1] 3.523822
 #> 
 #> 
 #> $sample.se
 #> $sample.se$values
-#>  [1] 14.451157  7.959295  9.802437  7.091537 11.112695  7.743851  9.998650
-#>  [8]  9.286939  8.723397  9.877047  9.470214 10.988691  9.942939 13.984059
-#> [15]  9.718860  8.069248  9.851480  9.325551  6.212510  9.849175
+#>  [1] 11.813780  9.303219 12.731034 16.640734  8.456891  3.352308 12.116301
+#>  [8]  8.337041  9.538332  7.676364  8.778013 10.530230  6.135078 11.099055
+#> [15]  7.273622 10.285297  9.449166 10.827454  9.169418 10.990419
 #> 
 #> $sample.se$mean
-#> [1] 9.672987
+#> [1] 9.725188
 #> 
 #> $sample.se$se
-#> [1] 1.981547
+#> [1] 2.727498
 ```
 
 Some expected errors and warnings
 
 ``` r
+
 ## size>length(pop.2)
 pop.2 <- rnorm(10,0,10)#
 SRSampling(x=pop.2, size=15, rep=20) # error; not run
@@ -161,10 +164,10 @@ SRSampling(x=pop.2, size=5.8) # warning
 #> 
 #> The SRS for each run of samplings are NOT included in the result
 #> $sample.mean
-#> [1] -1.904117
+#> [1] -6.218686
 #> 
 #> $sample.se
-#> [1] 8.868753
+#> [1] 11.2873
 
 ## x=numeric(0)
 SRSampling(x=numeric(0), size=1) # error; not run

@@ -12,12 +12,14 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-[![GitHub license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
+
 
 # SRS
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![GitHub license](https://img.shields.io/github/license/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/QianYe-stat/SRS)](https://github.com/QianYe-stat/SRS/issues)
 <!-- badges: end -->
 
 The goal of SRS is to to take one or multiple simple random samples (SRS) of the specified size from an assumed population which are elements of a vector with length>1, and return the summary statistics including sample mean, sample standard deviation and etc.
@@ -61,8 +63,8 @@ devtools::install_github("QianYe-stat/SRS")
   + first install `pkgdown` package, and then run `use_pkgdown()` and `pkgdown::build_site()`;
   + create Github Pages based on `/docs`;
   + Please see the package website [here](https://qianye-stat.github.io/SRS/)
-* Manually create and modify the `NEWS.md` file in the root of the repo. 
-* Manually add badges through https://shields.io/
+* Create the `NEWS.md` file using `use_news_md()` and modify it.
+* Manually add badges through https://shields.io/. Also add lifecycle badge by using `use_lifecycle_badge("Experimental")`
 * Final `check()` and `install()`.
 
 ## Example
@@ -74,6 +76,7 @@ library(SRS)
 ## basic example code
 ###### informal tests #######
 pop.1 <- rnorm(1000,0,10)
+
 # take a SRS from x of size=10, show.SRS=TRUE
 SRSampling(x=pop.1, size=10, show.SRS=T)
 
@@ -84,6 +87,7 @@ SRSampling(x=pop.1, size=10, rep=20)
 
 Some expected errors and warnings
 ```{r, error=TRUE}
+
 ## size>length(pop.2)
 pop.2 <- rnorm(10,0,10)#
 SRSampling(x=pop.2, size=15, rep=20) # error; not run
